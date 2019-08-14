@@ -1,13 +1,13 @@
 {
     "name": "OpenMageModuleFostering/MW_PageReloadEnhancement",
     "type": "magento-module",
-    "license": "OSL",
+    "license": "OSL-3.0",
     "homepage": "",
-    "description": "MW extension",
+    "description": "The Page Reload Enhancement extension simply refreshes the products on a webpage instead of the entire page, creating faster loading and shorter waiting.",
     "authors": [
     {
-        "name": "MagentoWhiz",
-        "email": "forix@forixsolutions.com"
+        "name": "MageWhiz",
+        "email": "whiz@magewhiz.com"
     }
 ],
     "suggest": {
