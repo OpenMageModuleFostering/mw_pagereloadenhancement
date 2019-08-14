@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+    <catalog_category_mw_pagereloadenhancement>
+        <reference name="head">
+            <action method="addCss" ifconfig="mw_pagereloadenhancement/general/enable"><stylesheet>css/mw/pagereloadenhancement/pagereloadenhancement.css</stylesheet></action>
+            <action method="addItem" ifconfig="mw_pagereloadenhancement/general/enable"><type>skin_js</type><name>js/mw/pagereloadenhancement/jquery.min.js</name><params/></action>
+            <action method="addItem" ifconfig="mw_pagereloadenhancement/general/enable"><type>skin_js</type><name>js/mw/pagereloadenhancement/jquery.noconflict.js</name><params/></action>
+            <action method="addItem" ifconfig="mw_pagereloadenhancement/general/enable"><type>skin_js</type><name>js/mw/pagereloadenhancement/jquery.ba-bbq.min.js</name><params/></action>
+            <action method="addItem" ifconfig="mw_pagereloadenhancement/general/enable"><type>skin_js</type><name>js/mw/pagereloadenhancement/pagereloadenhancement.js</name><params/></action>
+        </reference>
+    </catalog_category_mw_pagereloadenhancement>
+
+    <catalog_category_layered translate="label">
+        <update handle="catalog_category_mw_pagereloadenhancement" />
+    </catalog_category_layered>
+
+    <catalog_category_default>
+        <update handle="catalog_category_mw_pagereloadenhancement" />
+    </catalog_category_default>
+
+    <catalogsearch_result_index>
+        <update handle="catalog_category_mw_pagereloadenhancement" />
+    </catalogsearch_result_index>
+
+    <catalogsearch_advanced_result>
+        <update handle="catalog_category_mw_pagereloadenhancement" />
+    </catalogsearch_advanced_result>
+
+
+    <catalog_category_view_ajaxlist>
+        <reference name="root">
+            <action method="setTemplate"><template>mw/pagereloadenhancement/product/list.phtml</template></action>
+        </reference>
+    </catalog_category_view_ajaxlist>
+</layout>

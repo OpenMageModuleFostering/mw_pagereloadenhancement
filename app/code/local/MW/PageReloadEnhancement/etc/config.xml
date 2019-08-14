@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MW_PageReloadEnhancement>
+            <version>1.0.0</version>
+        </MW_PageReloadEnhancement>
+    </modules>
+    <global>
+        <blocks>
+            <pagereloadenhancement>
+                <class>MW_PageReloadEnhancement_Block</class>
+            </pagereloadenhancement>
+        </blocks>
+        <models>
+            <pagereloadenhancement>
+                <class>MW_PageReloadEnhancement_Model</class>
+            </pagereloadenhancement>
+        </models>
+        <helpers>
+            <pagereloadenhancement>
+                <class>MW_PageReloadEnhancement_Helper</class>
+            </pagereloadenhancement>
+        </helpers>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <mw_pagereloadenhancement>
+                    <file>mw_pagereloadenhancement.xml</file>
+                </mw_pagereloadenhancement>
+            </updates>
+        </layout>
+
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <mw_pagereloadenhancement>
+                        <type>singleton</type>
+                        <class>pagereloadenhancement/observer</class>
+                        <method>addHandleLayout</method>
+                    </mw_pagereloadenhancement>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
+    </frontend>
+
+    <default>
+        <mw_pagereloadenhancement>
+            <general>
+                <enable>1</enable>
+            </general>
+        </mw_pagereloadenhancement>
+    </default>
+</config>

@@ -1,0 +1,67 @@
+<?php
+/**
+ * @category   MW
+ * @package    MW_All
+ * @version    1.0.0
+ * @copyright  Copyright (c) 2012 Mage Whiz. (http://www.magewhiz.com)
+ */
+?>
+<?php
+    $helper = Mage::helper('mwall/config');
+    $available_update_types = $helper->getConfigurableUpdateTypes();
+?>
+<div class="popup-wrapper">
+    <div id="mw_popup" class="notification" style="display:none;">
+        <div class="header">
+            <h3>Mage Whiz Notifications Setup</h3>
+            <button type="button" class="close" onclick="mwPopup.closePopup()">
+                <span><?php echo $this->getCloseText(); ?></span></button>
+        </div>
+        <div class="content">
+            <form id="mw_notice" method="post"
+                  action="<?php echo $this->getUrl('adminhtml/system_config/save', array('section' => 'mwall'))?>">
+                <table class="form-list" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+                            <fieldset>
+                                <span class="legend_span">I'd like to get more information about:</span>
+                                <ul id="update_types">
+                                    <?php foreach ($helper->getUpdateTypes() as $k => $v): ?>
+                                    <li><input <?php $check_all = true; if(array_search($k, $available_update_types) !== false) echo 'checked="checked"'; else $check_all = false;?> type="checkbox" value="<?php echo $k?>"
+                                               name="groups[mwnotifications][fields][update_types][value][]" id="id_<?php echo $k?>"><label for="id_<?php echo $k?>"><?php echo $this->__($v)?></label></li>
+                                    <?php endforeach;?>
+                                </ul>
+                                <ul>
+                                    <li><div style="border-bottom: 1px dotted #CBCBCB; height: 10px"/></li>
+                                    <li><input <?php if($check_all) echo 'checked="checked"'?> type="checkbox" onclick="mwPopup.selectAll(this.checked);" id="id_select_all" /><label for="id_select_all">Select/Deselect All</label></li>
+                                </ul>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="show-next-time">
+                                <input name="groups[whiz][fields][hide_notice][value][]" type="checkbox"
+                                       value="<?php echo time();?>"/> <small>Don't show next time. You can change these preferences from <br/><a href="<?php echo Mage::getModel('adminhtml/url')->getUrl('adminhtml/system_config/edit', array('section' => 'mwall')) ?>">System > Configuration > Mage Whiz > Info</a>.</small>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <button id="save-button" onclick="mwPopup.scPopup()" type="button">
+                                <span>Save and Close</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="message-popup-window-mask" style="display:none;"></div>
+
+<script type="text/javascript">
+    Event.observe(window, 'load', function () {
+        mwPopup.show()
+    });
+</script>

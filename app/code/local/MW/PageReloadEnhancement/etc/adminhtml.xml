@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<config>
+    <menu>
+        <mwall>
+            <title>Mage Whiz</title>
+            <sort_order>75</sort_order>
+            <children>
+                <pagereloadenhancement>
+                    <title>Page Reload Enhancement</title>
+                    <sort_order>100</sort_order>
+                    <children>
+                        <configuration>
+                            <title>Configuration</title>
+                            <sort_order>100</sort_order>
+                            <action>adminhtml/system_config/edit/section/mw_pagereloadenhancement</action>
+                        </configuration>
+                    </children>
+                </pagereloadenhancement>
+            </children>
+        </mwall>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mw_pagereloadenhancement translate="title">
+                                        <title>Page Reload Enhancement Configuration</title>
+                                        <sort_order>200</sort_order>
+                                    </mw_pagereloadenhancement>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
