@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 The Page Reload Enhancement extension simply refreshes the products on a webpage instead of the entire page, creating faster loading and shorter waiting.
